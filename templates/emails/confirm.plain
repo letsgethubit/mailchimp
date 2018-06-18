@@ -1,0 +1,12 @@
+CONFIRMACIÓN DE CUENTA
+
+#################################################
+
+Hola {{fullName},
+
+Para confirmar su cuenta en Registro de Usuarios
+debe visitar el siguiente enlace:
+
+http://dominio.com/usuario/{{user}}/confirmar/{{keyConfirm}}
+
+#################################################

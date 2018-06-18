@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Alta Lista de usuarios MailChimp</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style>
+            body {
+            }
+
+            h1,h2,h3 {
+                text-align: center;
+                color: #aaaaaa;
+                font-family: 'Lato', sans-serif;
+                font-size: 80px;
+                font-weight: 400;
+            }
+
+            h2,h3 {
+                color: #bdbebb;
+                font-size: 50px;
+                font-weight: 200;
+                margin-top: 10px;
+            }
+
+            h3{
+                font-weight: 100;
+                font-size: 25px;
+            }
+
+             .bg-danger {
+                padding:5px 10px;
+                margin:20px 5px;
+                border-radius: 5px;
+
+            }
+            .cont_loader{
+                margin: 0 auto;
+                display: block;
+                width: 40px;
+            }
+            .loader {
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 5px solid #aaaaaa;
+                width: 40px;
+                height: 40px;
+                -webkit-animation: spin 1s linear infinite; /* Safari */
+                animation: spin 1s linear infinite;
+            }
+
+            /* Safari */
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            #modal h1 {
+                font-size: 40px;
+            }
+            #modal h3 {
+                font-size: 18px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Registro de usuarios</h1>
+        <h2>MailChimp</h2>
+
+        <div class="contaniner">
+
+                <div class="col-sm-6  col-sm-offset-3 ">
+
+
+                    <div class="alert alert-danger fade in" role="alert" style="display:none">
+                        <button type="button" class="close" onclick="$('.alert').hide()" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4>Errores</h4>
+                        <div class="alert-message"></div>
+                    </div>
+
+                    <form class="form-horizontal" method="post" id="form">
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Email" id="email" type="email" name="email" value="danimabo@yahoo.es">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Nombre:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Nombre" id="name" type="text" name="name" value="aaaa">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Apellidos:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Apellidos" id="lastname" type="text" name="lastname" value="bbb">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-2 control-label">Dirección:</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" placeholder="Dirección" id="address" type="text" name="address">cccc</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" class="col-sm-2 control-label">Teléfono:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Teléfono" id="telephone" type="text" name="telephone" value="933119565">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_birth" class="col-sm-2 control-label">Fecha:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Fecha de nacimiento" id="date_birth" type="date" name="date_birth" value="24/04/1986">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="user" class="col-sm-2 control-label">Usuario:</label>
+                            <div class="col-sm-10">
+                             <input class="form-control" placeholder="Usuario" id="user" type="text" name="user" value="user">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Contraseña:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Contraseña" id="password" type="password" name="password" value="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="col-sm-2 control-label">Repite contraseña:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="Repite Contraseña" id="password2" type="password" name="password2" value="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input checked type="checkbox" name="politicas" id="politicas" value="1"> Acepto las <a id="info_politica" href="#">políticas de privacidad</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="mailchimp" id="mailchimp" disabled value="1"> Quiero registrarme a MailChimp
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="registrarse" class="btn btn-default" type="submit">Registrarse</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-12">
+                    <p class="text-center"><a href="/">Volver</a></p>
+                </div>
+        </div>
+
+
+
+
+        <div id="modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+
+        var campos = {
+            'servidor': 'Servidor',
+            'email': 'Email',
+            'name': 'Nombre',
+            'lastname': 'Apellidos',
+            'telephone': 'Teléfono',
+            'date_birth': 'Fecha de nacimiento',
+            'user': 'Nombre de usuario',
+            'password': 'Contraseña',
+            'password2': 'Repite contraseña',
+            'politicas': 'Políticas de privacidad'
+        };
+
+        function resetErrores(){
+            $('#form > div').each(function() {
+                $( this ).removeClass( "has-error" );
+            });
+            $('.alert-danger .alert-message').html('');
+            $('.alert-danger').hide();
+        }
+
+
+        $('#form').submit(function( e ) {
+            $('#registrarse').button('loading');
+
+            var url = "/usuario/new"; // the script where you handle the form input.
+
+            resetErrores();
+
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    console.log(data);
+                    if(data.error) {
+                        var texto = '';
+                        for(campo in data.data) {
+                            $('#'+campo).parent().parent().addClass('has-error');
+                            texto += campos[campo];
+                            texto += '<ul>';
+                            data.data[campo].forEach(function (value, index, array) {
+                                texto += '<li>'+value+'</li>';
+                            });
+                            texto += '</ul>';
+                        }
+                        $('.alert-danger .alert-message').html(texto);
+                        $('.alert-danger').show();
+                    } else {
+                        location.href = data.data;
+                    }
+                    $('#registrarse').button('reset');
+                },
+                error: function (jqXhr, textStatus, errorMessage) { // error callback
+                    $('.alert-danger .alert-message').html(textStatus+' - '+errorMessage);
+                    $('.alert-danger').show();
+                    $('#registrarse').button('reset');
+                }
+            });
+
+
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+
+        $('#form #politicas:checkbox').change(function() {
+           var disabled;
+           if ($(this).is(":checked")) {
+               disabled = false;
+           }else{
+               disabled = true;
+           }
+            $('#mailchimp').prop({
+                disabled: disabled
+            });
+        });
+
+        $('#info_politica').click(function(){
+            $('#modal .modal-title').html('Políticas de privacidad');
+            $('#modal .modal-body').html('<div class="cont_loader"><div class="loader"></div></div>');
+            $('#modal').modal('show');
+            $.ajax({
+                type: "GET",
+                url: '/politicas',
+                success: function(data)
+                {
+                    $('#modal .modal-body').html(data); // show response from the php script.
+                }
+            });
+        });
+
+    </script>
+    </body>
+</html>
